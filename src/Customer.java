@@ -15,8 +15,9 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nAccount No :" + accountNo;
+        return "Name: " + name +" \n "+ " Account No :" + accountNo;
     }
+
 
     public String getName() {
         return name;

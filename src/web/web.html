@@ -1,89 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="style.css">
+    <!--    <link rel="stylesheet" href="style.css">-->
     <title>Bank App</title>
+
+
 </head>
 
 <body style="padding: 20px 50px 20px 50px ">
 <header style="padding-left: 700px">
     <h1> WELCOME </h1>
 </header>
-<!--<form action="">-->
-<!--    <fieldset >-->
+<form action="create" method="post">
+    <fieldset >
 
-<!--        <legend>Create New Account</legend>-->
-<!--        <label for="name">Enter your name : </label>-->
-<!--        <input type="text" id="name" name="name" required>-->
-<!--        <label for="nic">Enter your NIC : </label>-->
-<!--        <input type="text" id="nic" name="nic" required>-->
-<!--        <label for="address">Enter your address: </label>-->
-<!--        <input type="text" id="address" name="address" required>-->
-<!--        <button id="accCreate">Create Account</button>-->
+        <legend>Create New Account</legend>
+        <label for="name">Enter your name : </label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="nic">Enter your NIC : </label><br>
+        <input type="text" id="nic" name="nic" required><br>
+        <label for="address">Enter your address: </label><br>
+        <input type="text" id="address" name="address" required><br>
+        <button id="accCreate">Create Account</button><br>
 
-<!--    </fieldset>-->
-<!--</form>-->
-<form action="deposit" method="get" id="deposit">
+    </fieldset>
+</form>
+<form action="deposit" method="post" id="deposit">
     <fieldset>
+        <label for="name">Enter account name : </label><br>
+        <input type="text" id="name2" name="name" required><br>
         <legend>Deposit Amount</legend>
         <label for="accNo">Enter your account number : </label> <br>
         <input type="text" id="accNo" name="accNo"><br>
-        <label for="amt">   Enter deposit amount : </label><br>
+        <label for="amt"> Enter deposit amount : </label><br>
         <input type="text" id="amt" name="amount"><br>
-        <button id="depositBtn">Deposit</button><br>
+        <button id="depositBtn">Deposit</button>
+        <br>
     </fieldset>
 </form>
 
-<!--<form class="withdrawal">-->
-<!--    <fieldset>-->
-<!--        <legend>Amount Withdrawal</legend>-->
-<!--        <label for="accNo1">Enter your account number : </label>-->
-<!--        <input type="text" id="accNo1" name="accNo2">-->
-<!--        <label for="amt1">Enter withdrawal amount : </label>-->
-<!--        <input type="text" id="amt1" name="amount">-->
-<!--        <button id="withdrawlBtn">Withdraw</button>-->
-<!--    </fieldset>-->
-<!--</form>-->
-<!--<form class="transfer">-->
-<!--    <fieldset>-->
-<!--        <legend >Amount Transfer</legend>-->
-<!--        <label for="accNo2">Enter your account number : </label>-->
-<!--        <input type="text" id="accNo2" name="accNo2">-->
-<!--        <label for="accNo3">Enter transfer account number : </label>-->
-<!--        <input type="text" id="accNo3" name="accNo3">-->
-<!--        <label for="amt2">Enter transfer amount : </label>-->
-<!--        <input type="text" id="amt2" name="amount">-->
-<!--        <button id="Transfer">Transfer</button>-->
-<!--    </fieldset>-->
-<!--</form>-->
 
-<script src="script.js">
-    //get the form from DOM (Document object model)
-    var form = document.getElementById('deposit');
-    form.onsubmit = function(event){
-        var xhr = new XMLHttpRequest();
-        var data = new FormData(form);
-        //Add extra data to form before submission.
-        // data.append("referer","https://example.com");
-        //open the request
-        xhr.open('POST','http://localhost:8000');
-        //send the form data
-        xhr.send(data);
+<form class="withdrawal">
+    <fieldset>
+        <legend>Amount Withdrawal</legend>
+        <label for="name">Enter account name : </label><br>
+        <input type="text" id="name3" name="name" required><br>
+        <label for="accNo1">Enter your account number : </label><br>
+        <input type="text" id="accNo1" name="accNo2"><br>
+        <label for="amt1">Enter withdrawal amount : </label><br>
+        <input type="text" id="amt1" name="amount"><br>
+        <button id="withdrawlBtn">Withdraw</button><br>
+    </fieldset>
+</form>
+<form class="transfer">
+    <fieldset>
+        <legend >Amount Transfer</legend>
+        <label for="accNo2">Enter your account number : </label><br>
+        <input type="text" id="accNo2" name="accNo2"><br>
+        <label for="accNo3">Enter transfer account number : </label><br>
+        <input type="text" id="accNo3" name="accNo3"><br>
+        <label for="amt2">Enter transfer amount : </label><br>
+        <input type="text" id="amt2" name="amount"><br>
+        <button id="Transfer">Transfer</button><br>
+    </fieldset>
+</form>
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                form.reset(); //reset form after AJAX success.
-            }
-        };
 
-        //Dont submit the form.
-        return false;
-    }
-</script>
 </body>
 
 
