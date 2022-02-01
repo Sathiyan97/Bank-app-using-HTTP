@@ -117,17 +117,19 @@ class HttpMirror {
                             out.write(alloutput);
                             break;
 
-//                        case "wname":
-//                            int accNum1 = Integer.parseInt(dstsField2[1]);
-//                            double amount1 = Double.parseDouble(dstsField3[1]);
-//                            outputt = obj.makeWithdrawal(accNum1, amount1);
-//                            break;
-//                        case "tnum1":
-//                            int fromAccNum = Integer.parseInt(dstsField1[1]);
-//                            int toAccNum = Integer.parseInt(dstsField2[1]);
-//                            double amount2 = Double.parseDouble(dstsField3[1]);
-//                            outputt = obj.makeTransfer(fromAccNum, toAccNum, amount2);
-//                            break;
+                        case "/withdrawal":
+                            int accNum1 = Integer.parseInt(data2[1]);
+                            double amount1 = Double.parseDouble(data3[1]);
+                            alloutput = obj.makeWithdrawal(accNum1, amount1);
+                            out.write(alloutput);
+                            break;
+                        case "/transfer":
+                            int fromAccNum = Integer.parseInt(data1[1]);
+                            int toAccNum = Integer.parseInt(data2[1]);
+                            double amount2 = Double.parseDouble(data3[1]);
+                            alloutput = obj.makeTransfer(fromAccNum, toAccNum, amount2);
+                            out.write(alloutput);
+                            break;
 
 
                     }

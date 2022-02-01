@@ -1,73 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+    </style>
     <!--    <link rel="stylesheet" href="style.css">-->
+
     <title>Bank App</title>
+
+
+    ​
+    <script>
+        fetch('http://localhost:8000/create')
+            .then(response => response.json())
+            .then(data => {
+                console.log("hello");
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    </script>
 
 
 </head>
 
 <body style="padding: 20px 50px 20px 50px ">
-<header style="padding-left: 700px">
+<header style="padding-left: 600px">
     <h1> WELCOME </h1>
 </header>
-<form action="create" method="post">
-    <fieldset >
+<table style="width:100%">
+    <tr>
+        <th>
 
-        <legend>Create New Account</legend>
-        <label for="name">Enter your name : </label><br>
-        <input type="text" id="name" name="name" required><br>
-        <label for="nic">Enter your NIC : </label><br>
-        <input type="text" id="nic" name="nic" required><br>
-        <label for="address">Enter your address: </label><br>
-        <input type="text" id="address" name="address" required><br>
-        <button id="accCreate">Create Account</button><br>
+            <form action="create" method="post" target="@">
+                <fieldset>
 
-    </fieldset>
-</form>
-<form action="deposit" method="post" id="deposit">
-    <fieldset>
-        <label for="name">Enter account name : </label><br>
-        <input type="text" id="name2" name="name" required><br>
-        <legend>Deposit Amount</legend>
-        <label for="accNo">Enter your account number : </label> <br>
-        <input type="text" id="accNo" name="accNo"><br>
-        <label for="amt"> Enter deposit amount : </label><br>
-        <input type="text" id="amt" name="amount"><br>
-        <button id="depositBtn">Deposit</button>
-        <br>
-    </fieldset>
-</form>
+                    <legend>Create New Account</legend>
+                    <label for="name">Enter your name : </label><br>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="nic">Enter your NIC : </label><br>
+                    <input type="text" id="nic" name="nic" required><br>
+                    <label for="address">Enter your address: </label><br>
+                    <input type="text" id="address" name="address" required><br>
+                    <button id="accCreate" onclick="createAccount()">Create Account</button>
+                    <br>
 
+                </fieldset>
+            </form>
+        </th>
+        <th>
 
-<form class="withdrawal">
-    <fieldset>
-        <legend>Amount Withdrawal</legend>
-        <label for="name">Enter account name : </label><br>
-        <input type="text" id="name3" name="name" required><br>
-        <label for="accNo1">Enter your account number : </label><br>
-        <input type="text" id="accNo1" name="accNo2"><br>
-        <label for="amt1">Enter withdrawal amount : </label><br>
-        <input type="text" id="amt1" name="amount"><br>
-        <button id="withdrawlBtn">Withdraw</button><br>
-    </fieldset>
-</form>
-<form class="transfer">
-    <fieldset>
-        <legend >Amount Transfer</legend>
-        <label for="accNo2">Enter your account number : </label><br>
-        <input type="text" id="accNo2" name="accNo2"><br>
-        <label for="accNo3">Enter transfer account number : </label><br>
-        <input type="text" id="accNo3" name="accNo3"><br>
-        <label for="amt2">Enter transfer amount : </label><br>
-        <input type="text" id="amt2" name="amount"><br>
-        <button id="Transfer">Transfer</button><br>
-    </fieldset>
-</form>
-
+            <form action="deposit" method="post" id="deposit">
+                <fieldset>
+                    <label for="name">Enter account name : </label><br>
+                    <input type="text" id="name2" name="name" required><br>
+                    <legend>Deposit Amount</legend>
+                    <label for="accNo">Enter your account number : </label> <br>
+                    <input type="text" id="accNo" name="accNo"><br>
+                    <label for="amt"> Enter deposit amount : </label><br>
+                    <input type="text" id="amt" name="amount"><br>
+                    <button id="depositBtn">Deposit</button>
+                    <br>
+                </fieldset>
+            </form>
+        </th>
+        <th>
+            <form action="withdrawal" method="post">
+                <fieldset>
+                    <legend>Amount Withdrawal</legend>
+                    <label for="name">Enter account name : </label><br>
+                    <input type="text" id="name3" name="name" required><br>
+                    <label for="accNo1">Enter your account number : </label><br>
+                    <input type="text" id="accNo1" name="accNo2"><br>
+                    <label for="amt1">Enter withdrawal amount : </label><br>
+                    <input type="text" id="amt1" name="amount"><br>
+                    <button id="withdrawlBtn">Withdraw</button>
+                    <br>
+                </fieldset>
+            </form>
+        </th>
+        <th>
+            <form action="transfer" method="post">
+                <fieldset>
+                    <legend>Amount Transfer</legend>
+                    <label for="accNo2">Enter your account number : </label><br>
+                    <input type="text" id="accNo2" name="accNo2"><br>
+                    <label for="accNo3">Enter transfer account number : </label><br>
+                    <input type="text" id="accNo3" name="accNo3"><br>
+                    <label for="amt2">Enter transfer amount : </label><br>
+                    <input type="text" id="amt2" name="amount"><br>
+                    <button id="Transfer">Transfer</button>
+                    <br>
+                </fieldset>
+            </form>
+        </th>
+    </tr>
+</table>
 
 </body>
 
