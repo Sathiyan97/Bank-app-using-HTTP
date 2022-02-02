@@ -15,17 +15,7 @@
 
 
     ​
-    <script>
-        fetch('http://localhost:8000/create')
-            .then(response => response.json())
-            .then(data => {
-                console.log("hello");
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    </script>
+
 
 
 </head>
@@ -38,7 +28,7 @@
     <tr>
         <th>
 
-            <form action="create" method="post" target="@">
+            <form action="create" method="post">
                 <fieldset>
 
                     <legend>Create New Account</legend>
@@ -48,7 +38,7 @@
                     <input type="text" id="nic" name="nic" required><br>
                     <label for="address">Enter your address: </label><br>
                     <input type="text" id="address" name="address" required><br>
-                    <button id="accCreate" onclick="createAccount()">Create Account</button>
+                    <button id="accCreate" value="accCreate">Create Account</button>
                     <br>
 
                 </fieldset>

@@ -1,3 +1,5 @@
+package main.java;
+
 public class Customer {
     private Account accountNo;
     private String name;
